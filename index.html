@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>APP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+		<!-- <meta name="format-detection" content=""> -->
+		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+		<script type="text/javascript" src="scripts/index.js"></script>
+
+		<script>
+			var userAgent = navigator.userAgent + '';
+			if (userAgent.indexOf('iPhone') > -1) {
+				document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+				var mobile_system = 'iphone';
+			} else if (userAgent.indexOf('Android') > -1) {
+				document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+				var mobile_system = 'android';
+			} else {
+				var mobile_system = '';
+			}
+		</script>
+
+		<script src="js/lib/jquery.js"></script>
+		<!-- your scripts here -->
+		<script src="js/app/app.js"></script>
+		<script src="js/app/bootstrap.js"></script>
+		<script src="js/lib/jquery.mobile.js"></script>
+		<style>
+			.ui-selectmenu.ui-popup .ui-input-search {
+				margin-left: .5em;
+				margin-right: .5em;
+			}
+			.ui-selectmenu.ui-dialog .ui-content {
+				padding-top: 0;
+			}
+			.ui-selectmenu.ui-dialog .ui-selectmenu-list {
+				margin-top: 0;
+			}
+			.ui-selectmenu.ui-popup .ui-selectmenu-list li.ui-first-child .ui-btn {
+				border-top-width: 1px;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+			}
+			.ui-selectmenu.ui-dialog .ui-header {
+				border-bottom-width: 1px;
+			}
+			a {
+				text-decoration: none;
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<div data-role="page" id="landingPage" style="background: white">
+			<div data-role="header" style="text-shadow: none">
+				<h1>EC</h1>
+				<a href="index.html" data-role="button" data-icon="refresh" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
+			</div><!-- /header -->
+
+			<div data-role="content" style="text-shadow: none">
+    			<div><img src="genie.PNG" style="height: 100px; width: 100px;margin-left: 100px"></div>
+				<a href="#declareRegions" data-transition="pop">
+					<button>Declare</button>
+				 </a>
+			
+				<a href="#result" data-transition="slide">
+					<button>Result</button>
+				 </a>
+			
+				<button id="cameraPhoto">Camera</button>
+					<div><img style="display: none;width: 100%:height:100%"src="" id="small_Image" src=""></div>
+				 
+
+				 <video width="370" controls>
+  					<source src="Ayo Jay- Gimme Kiss Official Video.mp4" type="video/mp4">
+                </video>
+                
+			</div>
+		</div><!-- /page -->
+         
+         <div data-role="page" id="result">
+         	<div data-role="header" style="text-shadow: none">
+				<h1>EC</h1>
+				<a href="index.html" data-role="button" data-icon="refresh" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
+			</div><!-- /header -->
+
+			<div data-role="content" style="text-shadow: none">
+				<h2 style="text-align: center">Results</h2>
+				AFP : 30 <br><br>
+				GRA : 15 <br><br>
+				VAD : 21 <br><br>
+				KOA : 19 <br><br>
+			</div>
+         </div>
+
+		<div data-role="page" id="declareRegions">
+
+			<div data-role="header" style="text-shadow: none">
+				<h1>EC</h1>
+				<a href="index.html" data-role="button" data-icon="refresh" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
+			</div><!-- /header -->
+            
+			<div data-role="content" style="text-shadow: none">
+				<select id="filter-menu" data-native menu="false">
+					<option value="Greater Accra">Greater Accra</option>
+					<option value="Ashanti">Ashanti</option>
+					<option value="Volta">Volta</option>
+					<option value="Eastern">Eastern</option>
+					<option value="Western">Western</option>
+					<option value="Northern">Northern</option>
+					<option value="Upper West">Upper West</option>
+					<option value="Upper East">Upper East</option>
+				</select>
+			</div>
+			<div data-role="content" style="text-shadow: none">
+				<select id="filter-menu" data-native menu="false">
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+					<option value="D">D</option>
+					<option value="E">E</option>
+					<option value="F">F</option>
+					<option value="G">G</option>
+					<option value="H">H</option>
+				</select>
+			</div>
+			<div data-role="content" style="text-shadow: none">
+				AFP :<input type="number"></input>
+				GRA :<input type="number"></input>
+				VAD :<input type="number"></input>
+				KOA :<input type="number"></input>
+			</div>
+			<button>SUBMIT</button>
+		</div><!-- /page -->
+
+	</body>
+	<script>
+		$.mobile.document
+		// "filter-menu-menu" is the ID generated for the listview when it is created
+		// by the custom selectmenu plugin. Upon creation of the listview widget we
+		// want to prepend an input field to the list to be used for a filter.
+		.on("listviewcreate", "#filter-menu-menu", function(e) {
+			var input,
+			    listbox = $("#filter-menu-listbox"),
+			    form = listbox.jqmData("filter-form"),
+			    listview = $(e.target);
+			// We store the generated form in a variable attached to the popup so we
+			// avoid creating a second form/input field when the listview is
+			// destroyed/rebuilt during a refresh.
+			if (!form) {
+				input = $("<input data-type='search'></input>");
+				form = $("<form></form>").append(input);
+				input.textinput();
+				$("#filter-menu-listbox").prepend(form).jqmData("filter-form", form);
+			}
+			// Instantiate a filterable widget on the newly created listview and
+			// indicate that the generated input is to be used for the filtering.
+			listview.filterable({
+				input : input
+			});
+		})
+		// The custom select list may show up as either a popup or a dialog,
+		// depending how much vertical room there is on the screen. If it shows up
+		// as a dialog, then the form containing the filter input field must be
+		// transferred to the dialog so that the user can continue to use it for
+		// filtering list items.
+		//
+		// After the dialog is closed, the form containing the filter input is
+		// transferred back into the popup.
+		.on("pagebeforeshow pagehide", "#filter-menu-dialog", function(e) {
+			var form = $("#filter-menu-listbox").jqmData("filter-form"),
+			    placeInDialog = (e.type === "pagebeforeshow" ),
+			    destination = placeInDialog ? $(e.target).find(".ui-content") : $("#filter-menu-listbox");
+			form.find("input")
+			// Turn off the "inset" option when the filter input is inside a dialog
+			// and turn it back on when it is placed back inside the popup, because
+			// it looks better that way.
+			.textinput("option", "inset", !placeInDialog).end().prependTo(destination);
+		});
+	</script>
+</html>
