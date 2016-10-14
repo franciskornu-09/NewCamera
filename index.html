@@ -27,6 +27,10 @@
 		<script src="js/app/app.js"></script>
 		<script src="js/app/bootstrap.js"></script>
 		<script src="js/lib/jquery.mobile.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script type="text/javascript" src="cordova.js"></script>
+			<script type="text/javascript" src="scripts/platformOverrides.js"></script>
+			<script type="text/javascript" src="scripts/index.js"></script>
 		<style>
 			.ui-selectmenu.ui-popup .ui-input-search {
 				margin-left: .5em;
@@ -75,7 +79,7 @@
 				 
 
 				 <video width="370" controls>
-  					<source src="Ayo Jay- Gimme Kiss Official Video.mp4" type="video/mp4">
+  					<source src="video.mp4" type="video/mp4">
                 </video>
                 
 			</div>
@@ -95,46 +99,6 @@
 				KOA : 19 <br><br>
 			</div>
          </div>
-
-		<div data-role="page" id="declareRegions">
-
-			<div data-role="header" style="text-shadow: none">
-				<h1>EC</h1>
-				<a href="index.html" data-role="button" data-icon="refresh" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
-			</div><!-- /header -->
-            
-			<div data-role="content" style="text-shadow: none">
-				<select id="filter-menu" data-native menu="false">
-					<option value="Greater Accra">Greater Accra</option>
-					<option value="Ashanti">Ashanti</option>
-					<option value="Volta">Volta</option>
-					<option value="Eastern">Eastern</option>
-					<option value="Western">Western</option>
-					<option value="Northern">Northern</option>
-					<option value="Upper West">Upper West</option>
-					<option value="Upper East">Upper East</option>
-				</select>
-			</div>
-			<div data-role="content" style="text-shadow: none">
-				<select id="filter-menu" data-native menu="false">
-					<option value="A">A</option>
-					<option value="B">B</option>
-					<option value="C">C</option>
-					<option value="D">D</option>
-					<option value="E">E</option>
-					<option value="F">F</option>
-					<option value="G">G</option>
-					<option value="H">H</option>
-				</select>
-			</div>
-			<div data-role="content" style="text-shadow: none">
-				AFP :<input type="number"></input>
-				GRA :<input type="number"></input>
-				VAD :<input type="number"></input>
-				KOA :<input type="number"></input>
-			</div>
-			<button>SUBMIT</button>
-		</div><!-- /page -->
 
 	</body>
 	<script>
