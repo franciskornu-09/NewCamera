@@ -1,4 +1,4 @@
-﻿(function() {
+(function() {
 
 	document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 	var pictureSource;
@@ -7,7 +7,7 @@
 		pictureSource = navigator.camera.PictureSourceType;
 		destinationType = navigator.camera.DestinationType;
 
-		document.getElementById("cameraPhoto").onclick = function() {
+		document.getElementById("capturePhoto").onclick = function() {
 			navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 				quality : 50,
 
@@ -20,7 +20,7 @@
 	};
 	function onPhotoDataSuccess(imageData) {
 
-		var smallImage = document.getElementById('small_Image');
+		var smallImage = document.getElementById('smallImage');
 
 		smallImage.style.display = 'block';
 
