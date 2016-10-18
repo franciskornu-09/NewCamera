@@ -14,10 +14,25 @@
 				destinationType : destinationType.DATA_URL
 			});
 		}
-		  
+		
+		document.getElementById("geolocation").onclick = function(){
+			alert('Clicked');
+			var watchId = navigator.geolocation.watchPosition(geolocationSuccess,onError,{enablehighAccuracy: true});
+		}
 		  
 	
 	};
+	
+	function geolocationSuccess(position){
+		alert('Latitude: '+ position.coords.latitude +'<br />'+
+				'Longitude: '+ position.coords.longitude + '<br />');
+	}
+
+	function onError(error){
+		alert('code: ' + error.code + '\n' +
+				'message: '+ error.message + '\n');
+	}
+
 	function onPhotoDataSuccess(imageData) {
 
 		var smallImage = document.getElementById('smallImage');
