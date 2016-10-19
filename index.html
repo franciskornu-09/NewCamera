@@ -49,13 +49,8 @@
 				<br />
 				<button id="capturePhoto">CAMERA</button>
 				<button id="geolocation">Geolocation</button>
-                 <div>
-                  <p>
-          		  <a target="_blank" href="javascript:scan();" style="text-decoration: none"><button>Scan</button></a>
-         	      <a target="_blank" href="#display" style="text-decoration: none"><button>Display Scanned Data</button></a>
-        		  </p>
-				  </div>
-				  <div data-role="page" id="display">
+				
+		      <div data-role="page" id="display">
     <div data-role="header">
         <a target="_blank" href="#home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
         <h1>Display</h1>
@@ -97,28 +92,4 @@
 			<script type="text/javascript" src="cordova.js"></script>
 
 	</body>
-	<script type="text/javascript">
-		$(document).on("pagebeforeshow", "#display", function() {
-    $("table#allTable tbody").empty();
-
-    var data = localStorage.getItem("LocalData");
-    console.log(data);
-    data = JSON.parse(data);
-
-    var html = "";
-
-    for(var count = 0; count < data.length; count++)
-    {
-        html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
-    }
-
-    $("table#allTable tbody").append(html).closest("table#allTable").table("refresh").trigger("create");
-
-});
-
-function openURL(url)
-{
-    window.open(url, '_blank', 'location=yes');
-}
-	</script>
 </html>
