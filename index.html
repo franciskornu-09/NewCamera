@@ -47,33 +47,19 @@
 					Results
 				</button> </a>
 				<br />
-				<a id="capturePhoto" data-role="button" data-theme="d" data-transition="slideup">Camera</a>
-			        <a id="geolocation" data-role="button" data-theme="d" data-transition="slideup">Geolocation</a>
-				
-		      <div data-role="page" id="display">
-    <div data-role="header">
-        <a target="_blank" href="#home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
-        <h1>Display</h1>
-    </div>
-
-    <div data-role="main" class="ui-content">
-        <table data-role="table" data-mode="column" id="allTable" class="ui-responsive table-stroke">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-</div>
+				<button id="geolocationdata">geolocation</button>
+				<div id="divWatchMeMove">My Current Position</div>
+				<button id="clearWatchbtn">Reset</button>
+				<br />
+				<button id="capturePhoto">camera</button>	<br />
+                  <div><center><img class="lazy" style="display:none;width:100%;height:100%;" id="smallImage" src="" /></center></div>
+				  	<br />
 				  <video width="400" controls>
                       <source src="video.mp4" type="video/mp4">
                       
   
                  </video>
+				 	<br />
 				 <audio controls>
                         
                         <source src="audio.mp3" type="audio/mpeg">
@@ -82,14 +68,13 @@
 				 
 			</div><!-- /content -->
 		</div><!-- /page -->
+
+	<!----------------------------->
 		
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<script type="text/javascript" src="cordova.js"></script>
 			<script type="text/javascript" src="scripts/platformOverrides.js"></script>
-			<!-- <script type="text/javascript" src="scripts/index.js"></script> -->
-			<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-			<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-			<script type="text/javascript" src="cordova.js"></script>
+			<script type="text/javascript" src="scripts/index.js"></script>
 
 	</body>
 </html>
